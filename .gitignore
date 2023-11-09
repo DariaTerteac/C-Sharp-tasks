@@ -1,0 +1,14 @@
+# Visual Studio files
+.vs/
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+*.vscode/
+
+# Build results
+[Bb]in/
+[Oo]bj
