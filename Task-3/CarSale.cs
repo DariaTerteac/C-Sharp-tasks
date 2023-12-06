@@ -100,12 +100,12 @@ class CarSale
         // Calculate loan amount
         double loanAmount = loanParams.fullPrice - loanParams.basePayment;
 
-        // Constants
+        // Constant
         const int monthsPerYear = 12;
 
         // Calculate monthly payment 
         double interestInPercent = 9;
-        var rateOfInterest = interestInPercent / monthsPerYear / 100; // Using the constant
+        var rateOfInterest = interestInPercent / monthsPerYear / 100;
         var numberOfPayments = loanParams.numberOfMonths;
         var monthlyPayment = (rateOfInterest * loanAmount) / (1 - Math.Pow(1 + rateOfInterest, numberOfPayments * -1));
 
