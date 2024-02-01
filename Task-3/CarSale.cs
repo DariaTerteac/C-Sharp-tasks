@@ -1,12 +1,16 @@
-﻿using System;
+using System;
 
 class Car
 {
-    public string Manufacturer { get; set; }
+    public string? Manufacturer { get; set; }
+    public string? CarType { get; set; }
+    public string? Model { get; set; }
+    public string? Completion { get; set; }
+    public double? EngineCapacity { get; set; }
     public int Year { get; set; }
     public double Price { get; set; }
-    public string Color { get; set; }
-    public string Condition { get; set; }
+    public string? Color { get; set; }
+    public string? Condition { get; set; }
 
     public static void SortAndDisplayCars(Car[] cars)
     {
@@ -17,7 +21,7 @@ class Car
 
         // Display sorted car list
         foreach (Car car in sortedCars)
-            Console.WriteLine($"Car Information: Manufacturer {car.Manufacturer}, Year {car.Year}, Price ${car.Price}, Color {car.Color}, Condition {car.Condition}");
+            Console.WriteLine($"Car Information: Manufacturer {car.Manufacturer}, Car type {car.CarType}, Model {car.Model}, Completion {car.Completion}, Year {car.Year}, Engine capacity {car.EngineCapacity}, Price ${car.Price}, Color {car.Color}, Condition {car.Condition}");
     }
 
     public static void FindAndDisplayBestCar(Car[] cars)
@@ -29,7 +33,7 @@ class Car
 
         // Display information about the best car
         if (bestCar != null)
-            Console.WriteLine($"Information about the Best Car: Manufacturer {bestCar.Manufacturer}, Year {bestCar.Year}, Price ${bestCar.Price}, Color {bestCar.Color}, Condition {bestCar.Condition}");
+            Console.WriteLine($"Information about the Best Car: Manufacturer {bestCar.Manufacturer}, Car type {bestCar.CarType}, Model {bestCar.Model}, Completion {bestCar.Completion}, Year {bestCar.Year}, Engine capacity {bestCar.EngineCapacity}, Price ${bestCar.Price}, Color {bestCar.Color}, Condition {bestCar.Condition}");
         else
             Console.WriteLine("No cars in the array.");
     }
@@ -39,47 +43,41 @@ class CarSale
 {
     static void Main()
     {
-        // Creating an array of 20 Car objects
-        Car[] cars = new Car[20];
-
-        // Initializing the cars with some sample data
-        cars[0] = new Car { Manufacturer = "BYD", Year = 2020, Price = 25000.10, Color = "Red", Condition = "New" };
-        cars[1] = new Car { Manufacturer = "Geely", Year = 2018, Price = 18000.50, Color = "Blue", Condition = "Used" };
-        cars[2] = new Car { Manufacturer = "GWM", Year = 2005, Price = 24000.24, Color = "Black", Condition = "New" };
-        cars[3] = new Car { Manufacturer = "Changan", Year = 2006, Price = 21000.75, Color = "Green", Condition = "Used" };
-        cars[4] = new Car { Manufacturer = "Chery", Year = 2000, Price = 22000.90, Color = "Red", Condition = "Used" };
-        cars[5] = new Car { Manufacturer = "NIO", Year = 2023, Price = 45000.45, Color = "Black", Condition = "Used" };
-        cars[6] = new Car { Manufacturer = "Geely", Year = 2022, Price = 28000.75, Color = "Blue", Condition = "Used" };
-        cars[7] = new Car { Manufacturer = "Lynk & Co", Year = 2022, Price = 29000.35, Color = "White", Condition = "New" };
-        cars[8] = new Car { Manufacturer = "Haval", Year = 2023, Price = 66000.75, Color = "Red", Condition = "New" };
-        cars[9] = new Car { Manufacturer = "Haval", Year = 2020, Price = 23000.50, Color = "Black", Condition = "Used" };
-        cars[10] = new Car { Manufacturer = "SWM Motors", Year = 2016, Price = 43000.60, Color = "Blue", Condition = "New" };
-        cars[11] = new Car { Manufacturer = "JAC Motors", Year = 2004, Price = 12000.75, Color = "White", Condition = "Used" };
-        cars[12] = new Car { Manufacturer = "DFM", Year = 2004, Price = 11500.80, Color = "Green", Condition = "Used" };
-        cars[13] = new Car { Manufacturer = "SAIC Motor", Year = 2007, Price = 16000.90, Color = "Red", Condition = "New" };
-        cars[14] = new Car { Manufacturer = "Chery", Year = 2008, Price = 14000.75, Color = "Green", Condition = "New" };
-        cars[15] = new Car { Manufacturer = "BYD", Year = 2013, Price = 25000.55, Color = "White", Condition = "Used" };
-        cars[16] = new Car { Manufacturer = "GWM", Year = 2015, Price = 37000.95, Color = "Red", Condition = "Used" };
-        cars[17] = new Car { Manufacturer = "Geely", Year = 2016, Price = 82000.75, Color = "Black", Condition = "New" };
-        cars[18] = new Car { Manufacturer = "NIO", Year = 2013, Price = 22000.85, Color = "Blue", Condition = "Used" };
-        cars[19] = new Car { Manufacturer = "Geely", Year = 2001, Price = 11000.15, Color = "White", Condition = "New" };
+        Car[] cars =
+        [
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 8 Pro e+", Completion = "Standart", Year = 2023, EngineCapacity = 1.5, Price = 37500, Color = "Red", Condition = "New" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 8 Pro e+", Completion = "Standart", Year = 2021, EngineCapacity = 1.5, Price = 35500, Color = "Purple", Condition = "Used" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 8 Pro MAX", Completion = "Standart", Year = 2023, EngineCapacity = 2.0, Price = 30700, Color = "Black", Condition = "New" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 8 Pro MAX", Completion = "Standart", Year = 2022, EngineCapacity = 2.0, Price = 29500, Color = "White", Condition = "New" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 8 Pro", Completion = "Standart", Year = 2022, EngineCapacity = 1.6, Price = 21700, Color = "Blue", Condition = "Used" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 8 Pro", Completion = "Standart", Year = 2023, EngineCapacity = 1.6, Price = 23700, Color = "Gray", Condition = "New" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 7 Pro", Completion = "Premium", Year = 2022, EngineCapacity = 1.5, Price = 20800, Color = "Blue premium", Condition = "Used" },
+            new Car { Manufacturer = "Chery", CarType = "Crossover", Model = "Tiggo 2 Pro", Completion = "Standart", Year = 2022, EngineCapacity = 1.5, Price = 12900, Color = "Silver", Condition = "New" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "Jolion", Completion = "Comfort", Year = 2021, EngineCapacity = 1.5, Price = 15900, Color = "Green", Condition = "Used" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "Jolion", Completion = "Top", Year = 2023, EngineCapacity = 1.5, Price = 19900, Color = "Hamilton White", Condition = "New" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "M6", Completion = "Premium", Year = 2021, EngineCapacity = 1.5, Price = 16500, Color = "Black", Condition = "New" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "M6", Completion = "Premium", Year = 2023, EngineCapacity = 1.5, Price = 16500, Color = "Red", Condition = "Used" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "H6 GT", Completion = "Top", Year = 2023, EngineCapacity = 1.5, Price = 28500, Color = "Blue", Condition = "New" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "H9 FL", Completion = "Super-Dignity", Year = 2023, EngineCapacity = 1.5, Price = 35500, Color = "Gray", Condition = "New" },
+            new Car { Manufacturer = "Haval", CarType = "Crossover", Model = "Dargo", Completion = "Top", Year = 2023, EngineCapacity = 2.0, Price = 26500, Color = "Orange", Condition = "Used" },
+            new Car { Manufacturer = "Geely", CarType = "Crossover", Model = "Altas Pro", Completion = "Luxury", Year = 2023, EngineCapacity = 1.5, Price = 24880, Color = "Red mettalic", Condition = "New" },
+            new Car { Manufacturer = "Geely", CarType = "Crossover", Model = "Coolray", Completion = "Flagship", Year = 2023, EngineCapacity = 1.5, Price = 20880, Color = "Purple grey", Condition = "Used" },
+            new Car { Manufacturer = "Geely", CarType = "Crossover", Model = "Tugella", Completion = "Flagship +", Year = 2023, EngineCapacity = 2.0, Price = 34880, Color = "Light grey", Condition = "New" },
+            new Car { Manufacturer = "Geely", CarType = "Crossover", Model = "Monjaro", Completion = "Flagship", Year = 2023, EngineCapacity = 2.0, Price = 42500, Color = "Crystal turquoise", Condition = "New" },
+        ];
 
         Car.SortAndDisplayCars(cars);
 
         Car.FindAndDisplayBestCar(cars);
 
-        CalculateLoan();
+        CalculateLoan(cars);
     }
 
     // Get loan parameters
-    static (double fullPrice, double basePayment, int numberOfMonths) GetLoanParameters()
+    static (double basePayment, int numberOfMonths) GetLoanParameters()
     {
-        double fullPrice, basePayment;
+        double basePayment;
         int numberOfMonths;
-
-        Console.Write("Enter the full price of the car: $");
-        if (!double.TryParse(Console.ReadLine(), out fullPrice))
-            Console.WriteLine("Invalid input for full price. Please enter a valid number.");
 
         Console.Write("Enter the base payment: $");
         if (!double.TryParse(Console.ReadLine(), out basePayment))
@@ -89,27 +87,44 @@ class CarSale
         if (!int.TryParse(Console.ReadLine(), out numberOfMonths))
             Console.WriteLine("Invalid input for the number of months. Please enter a valid integer number.");
 
-        return (fullPrice, basePayment, numberOfMonths);
+        return (basePayment, numberOfMonths);
     }
 
-    static void CalculateLoan()
+    static void CalculateLoan(Car[] cars)
     {
         // Get loan parameters from the user
-        (double fullPrice, double basePayment, int numberOfMonths) loanParams = GetLoanParameters();
+        (double basePayment, int numberOfMonths) loanParams = GetLoanParameters();
 
-        // Calculate loan amount
-        double loanAmount = loanParams.fullPrice - loanParams.basePayment;
+        // Prompt user to enter car condition
+        Console.Write("Enter car condition (New / Used): ");
+        string condition = Console.ReadLine()?.Trim() ?? string.Empty;
 
         // Constant
         const int monthsPerYear = 12;
 
-        // Calculate monthly payment 
-        double interestInPercent = 9;
-        var rateOfInterest = interestInPercent / monthsPerYear / 100;
-        var numberOfPayments = loanParams.numberOfMonths;
-        var monthlyPayment = (rateOfInterest * loanAmount) / (1 - Math.Pow(1 + rateOfInterest, numberOfPayments * -1));
+        // Calculate and store monthly payment for each car based on condition
+        var carMonthlyPayments = cars
+            .Where(car => car.Condition?.Equals(condition, StringComparison.OrdinalIgnoreCase) ?? false)
+            .Select(car =>
+            {
+                // Calculate loan amount
+                double loanAmount = car.Price - loanParams.basePayment;
 
-        // Display monthly payment
-        Console.WriteLine($"Monthly payment amount: {monthlyPayment:C}");
+                // Calculate monthly payment 
+                double interestInPercent = 9;
+                var rateOfInterest = interestInPercent / monthsPerYear / 100;
+                var numberOfPayments = loanParams.numberOfMonths;
+                var monthlyPayment = (rateOfInterest * loanAmount) / (1 - Math.Pow(1 + rateOfInterest, numberOfPayments * -1));
+
+                return (car, monthlyPayment);
+            })
+            .OrderBy(tuple => tuple.Item2) // Sort by monthly payment
+            .ToList();
+
+        // Display sorted monthly payments
+        foreach (var (car, monthlyPayment) in carMonthlyPayments)
+        {
+            Console.WriteLine($"Monthly payment for {car.Manufacturer} {car.Model} {car.Year}({car.Condition}): {monthlyPayment:C}");
+        }
     }
 }
